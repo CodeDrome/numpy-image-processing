@@ -1,3 +1,4 @@
+import PIL
 from PIL import Image
 import numpy as np
 
@@ -50,7 +51,7 @@ def main():
     # create new Pillow image from copy of NumPy array
     imagecopy = Image.fromarray(npimagecopy)
     # and save it
-    imagecopy.save("3x3edited.png")
+    imagecopy.save("3x3edited_2.png")
 
 
 if __name__ == "__main__":
