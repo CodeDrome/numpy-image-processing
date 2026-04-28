@@ -1,10 +1,12 @@
+from typing import Tuple
+
 from PIL import Image
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 
 
-def create_image_histograms(filename):
+def create_image_histograms(filename: str) -> None:
 
     '''
     The single "public" function in the module
@@ -38,7 +40,7 @@ def create_image_histograms(filename):
         raise e
     
 
-def _as_2d(npimage):
+def _as_2d(npimage) -> Tuple:
 
     # separate out the 3 colour channels
     r, g, b = np.split(npimage, 3, 2)
@@ -53,7 +55,7 @@ def _as_2d(npimage):
     return (r, g, b)
 
 
-def _get_rgb_frequencies(npimage_2d):
+def _get_rgb_frequencies(npimage_2d) -> Tuple:
 
     # get frequencies for each colour
     red_counts = np.bincount(npimage_2d[0], minlength=256)
@@ -76,7 +78,7 @@ def _get_rgb_frequencies(npimage_2d):
     return (red_counts, green_counts, blue_counts)
     
 
-def _histograms(counts, filename):
+def _histograms(counts: Tuple, filename: str) -> None:
 
     # all three histograms are plotted from 
     # 0 to 255 on the x axis
